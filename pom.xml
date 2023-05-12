@@ -30,6 +30,8 @@
 	</dependencies>
 
 	<build>
+		<!-- Fixed output JAR filename to avoid duplication when using COPY command in Dockerfile -->
+		<finalName>app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
