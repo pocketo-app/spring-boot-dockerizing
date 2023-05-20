@@ -42,6 +42,10 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<layers>
+						<enabled>true</enabled>
+						<includeLayerTools>true</includeLayerTools>
+					</layers>
 					<image>
 						<name>${docker.image.name}</name>
 						<env>
