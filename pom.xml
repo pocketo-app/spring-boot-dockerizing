@@ -19,7 +19,7 @@
 		<bp.jvm.version>17</bp.jvm.version>
 		<bp.jvm.type>JDK</bp.jvm.type>
 		<bp.jvm.jlink.enabled>false</bp.jvm.jlink.enabled>
-		<bp.jvm.jlink.args>--add-modules java.se --strip-debug --no-man-pages --no-header-files --compress=2</bp.jvm.jlink.args>
+		<bp.jvm.jlink.args>--add-modules java.se,jdk.jdwp.agent --strip-debug --no-man-pages --no-header-files --compress=2</bp.jvm.jlink.args>
 	</properties>
 	<dependencies>
 		<dependency>
