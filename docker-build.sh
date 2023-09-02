@@ -19,6 +19,10 @@ elif [[ $MODE == 'cnb-jre' ]]; then
 	./mvnw spring-boot:build-image -DskipTests "-Ddocker.image.name=$IMAGE_NAME:$MODE" -Dbp.jvm.type=JRE
 elif [[ $MODE == 'cnb-jlink' ]]; then
 	./mvnw spring-boot:build-image -DskipTests "-Ddocker.image.name=$IMAGE_NAME:$MODE" -Dbp.jvm.jlink.enabled=true
+elif [[ $MODE == 'jib-ubuntu-jdk' ]]; then
+	./mvnw jib:dockerBuild -DskipTests "-Ddocker.image.name=$IMAGE_NAME:$MODE" -Djib.from.image=eclipse-temurin:17-jdk-jammy
+elif [[ $MODE == 'jib-ubuntu-jre' ]]; then
+	./mvnw jib:dockerBuild -DskipTests "-Ddocker.image.name=$IMAGE_NAME:$MODE" -Djib.from.image=eclipse-temurin:17-jre-jammy
 elif [[
 	$MODE == 'ubuntu-jdk-fat' ||
 	$MODE == 'ubuntu-jre-fat' ||

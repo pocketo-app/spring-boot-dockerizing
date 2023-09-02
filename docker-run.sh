@@ -21,6 +21,8 @@ if [[ $MODE == 'cnb-jdk' || $MODE == 'cnb-jre' || $MODE == 'cnb-jlink' ]]; then
 		--rm \
 		"$IMAGE_NAME:$MODE"
 elif [[
+	$MODE == 'jib-ubuntu-jdk' ||
+	$MODE == 'jib-ubuntu-jre' ||
 	$MODE == 'ubuntu-jdk-fat' ||
 	$MODE == 'ubuntu-jre-fat' ||
 	$MODE == 'ubuntu-jlink-fat' ||

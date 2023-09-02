@@ -15,7 +15,7 @@
 	<description>Dockerizing a Spring Boot application</description>
 	<properties>
 		<java.version>17</java.version>
-		<docker.image.name>tonghoangvu/spring-boot-dockerizing:cnb-jdk</docker.image.name>
+		<docker.image.name>tonghoangvu/spring-boot-dockerizing</docker.image.name>
 		<bp.jvm.version>17</bp.jvm.version>
 		<bp.jvm.type>JDK</bp.jvm.type>
 		<bp.jvm.jlink.enabled>false</bp.jvm.jlink.enabled>
@@ -66,6 +66,26 @@
 							</volume>
 						</launchCache>
 					</image>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.3.2</version>
+				<configuration>
+					<to>
+						<image>docker.io/${docker.image.name}</image>
+					</to>
+					<container>
+						<jvmFlags>
+							<jvmFlag>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005</jvmFlag>
+						</jvmFlags>
+						<ports>
+							<port>8081</port>
+							<port>5005</port>
+						</ports>
+						<format>OCI</format>
+					</container>
 				</configuration>
 			</plugin>
 		</plugins>
