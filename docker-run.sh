@@ -10,7 +10,8 @@ set -o pipefail
 IFS=$'\n\t'
 
 MODE=$1
-IMAGE_NAME=tonghoangvu/spring-boot-dockerizing
+DOCKER_USERNAME=tonghoangvu
+IMAGE_NAME=$DOCKER_USERNAME/spring-boot-dockerizing
 TIME=$(date +%s)
 
 if [[ $MODE == 'cnb-jdk' || $MODE == 'cnb-jre' || $MODE == 'cnb-jlink' ]]; then
